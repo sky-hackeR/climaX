@@ -114,7 +114,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ? Container(
               decoration: BoxDecoration(
                 gradient: LinearGradient(
-                  colors: [Colors.blue, Colors.white],
+                  colors: [Colors.blue, Colors.blueGrey],
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
                 ),
@@ -129,7 +129,7 @@ class _HomeScreenState extends State<HomeScreen> {
               padding: const EdgeInsets.all(20),
               decoration: BoxDecoration(
                 gradient: const LinearGradient(
-                  colors: [Colors.blue, Colors.white],
+                  colors: [Colors.blue, Colors.blueGrey],
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
                 ),
@@ -233,44 +233,44 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget _buildWeatherDetail(String label, IconData icon, String value) {
-  return ClipRRect(
-    child: BackdropFilter(
-      filter: ImageFilter.blur(sigmaX: 3, sigmaY: 3),
-      child: Container(
-        height: 100,
-        width: 150,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(15),
-          gradient: LinearGradient(
-            colors: [Colors.white.withOpacity(0.1), Colors.white.withOpacity(0.3)],
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
+    return ClipRRect(
+      child: BackdropFilter(
+        filter: ImageFilter.blur(sigmaX: 3, sigmaY: 3),
+        child: Container(
+          height: 100,
+          width: 150,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(15),
+            gradient: LinearGradient(
+              colors: [Colors.white.withOpacity(0.1), Colors.white.withOpacity(0.3)],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+            ),
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(icon, color: Colors.white),
+              SizedBox(height: 8),
+              Text(
+                label,
+                style: GoogleFonts.lato(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white70,
+                ),
+              ),
+              Text(
+                value,
+                style: GoogleFonts.lato(
+                  fontSize: 18,
+                  color: Colors.white,
+                ),
+              )
+            ],
           ),
         ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(icon, color: Colors.white),
-            SizedBox(height: 8),
-            Text(
-              label,
-              style: GoogleFonts.lato(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-                color: Colors.white70,
-              ),
-            ),
-            Text(
-              value,
-              style: GoogleFonts.lato(
-                fontSize: 18,
-                color: Colors.white,
-              ),
-            )
-          ],
-        ),
       ),
-    ),
-  );
-}
+    );
+  }
 }
